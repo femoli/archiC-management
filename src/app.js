@@ -1,12 +1,12 @@
 const express = require("express")
 const app = express()
 
-const database = require('./model/database')
+const database = require('./models/database')
 database.connect()
 
 //rotas
 const index = require("./routes/index")
-const contatos = require("./routes/contatosRoute")
+const projects = require("./routes/projectsRouter")
 const bodyParser = require("body-parser")
 
 app.use(function (request, response, next) {
@@ -18,10 +18,9 @@ app.use(function (request, response, next) {
   next()
 })
 
-//middleware
 app.use(bodyParser.json());
 
-//rotas
 app.use("/", index)
+app.use("/archic", projects )
 
 module.exports = app

@@ -1,9 +1,9 @@
 # archiC - Management
 Gerenciamento de projetos arquitetônicos. 
 
-# Sobre o projeto final
+## Sobre o projeto final
 
-## Dicas
+### Dicas
 - estruturar os requisitos obrigatórios (o minimo) e desejáveis (opcionais, aquele "a mais");
 - desenhar a API que você quer criar:
 	- definir o formato da(s) collection(s) que terão no seu MongoDB;
@@ -12,7 +12,7 @@ Gerenciamento de projetos arquitetônicos.
 	- definir qual a resposta de cada rota, incluindo casos de erro (not found, erro de validação, login, etc);
 	- definir qual o formato do request de cada rota (params? body?).
 
-## Roteiro para iniciar a API
+### Roteiro para iniciar a API
 - Criar server.js, que nao muda muito;
 - Criar o app.js, que vai conectar ao banco e ter as rotas;
 - Criar a estrutura de pastas: routes, model, controller;
