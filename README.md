@@ -1,9 +1,9 @@
-# archiC - Management
+### archiC - Management
 Gerenciamento de projetos arquitetônicos. 
 
-## Sobre o projeto final
+### Sobre o projeto final
 
-### Dicas
+#### Dicas
 - estruturar os requisitos obrigatórios (o minimo) e desejáveis (opcionais, aquele "a mais");
 - desenhar a API que você quer criar:
 	- definir o formato da(s) collection(s) que terão no seu MongoDB;
