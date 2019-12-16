@@ -22,23 +22,34 @@ const createNewUser = (req, res) => {
     const userProjects = req.body.projetos_ativos;
     const userNumber = req.body.telefone;
     const userEmail = req.body.email;
-    const client = new clientsCollection({ 
-        nome: userName, 
-        obra: clientProject, 
-        email: clientEmail, 
-        telefone: clientNumber, 
-        endereco: clientAddress })
-    client.save((error) => {
+    const user = new usersCollection({
+        nome: userName,
+        cau_cre: userLicense,
+        responsavel_tecnico: userManagement,
+        projetos_ativos: userProjects,
+        email: userEmail,
+        telefone: userNumber
+    })
+
+    user.save((error) => {
         if (error) {
             return res.status(400).send(error)
         } else {
-            return res.status(201).send(client)
+            return res.status(201).send(user)
         }
 
     })
 }
 
 module.exports = {
-    getAllClients,
-    createNewClient
+    getAllUsers,
+    createNewUser
 }
+
+//json pro postman
+// "nome": "",
+// "cau_cre": "",
+// "responsavel_tecnico": "",
+// "projetos_ativos": "",
+// "email": "",
+// "telefone": ""
