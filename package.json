@@ -1,13 +1,14 @@
 {
   "name": "api-archic",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "API para gerenciar e acompanhar projetos de arquitetura e construção civil",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
   },
-  "author": "",
+  "author": "Fernanda Oliveira",
   "license": "ISC",
   "dependencies": {
     "debug-log": "^2.0.0",
