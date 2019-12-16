@@ -9,6 +9,7 @@ database.connect()
 const index = require('./routes/index')
 const projects = require('./routes/projectsRouter')
 const clients = require('./routes/clientsRouter')
+const users = require('./routes/usersRouter')
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
@@ -21,8 +22,6 @@ app.use(function (req, res, next) {
 
 app.use(bodyParser.json());
 app.use('/', index)
-app.use('/archic', projects, clients)
-//app.use('/archic-c', clients)
-//app.use('/archic-u, users)
+app.use('/archic', projects, clients, users)
 
 module.exports = app
