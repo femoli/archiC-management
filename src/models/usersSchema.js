@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const usersSchema = new Schema({
 
@@ -10,11 +10,11 @@ const usersSchema = new Schema({
 
     nome: { type: String, required: true },
 
-    cau_cre: { type: String, required: true },
+    cau_cre: { type: String, required: true, unique: true },
 
-    responsavel_tecnico: { type: String, unique: true, required: true },
+    responsavel_tecnico: { type: String, required: true },
 
-    projetos_ativos: { type: String, unique: true, required: true },
+    projetos_ativos: { type: String, required: true },
 
     email: { type: String, required: true },
 

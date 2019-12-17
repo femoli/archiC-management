@@ -6,8 +6,7 @@ const controller = require("../controllers/projectsController")
 
 router.get("/projetos", controller.getAllProjects)
 router.post("/novo-projeto", controller.createNewProject)
-// router.patch("/atualizar/:id", controller.updateFilme)
-// router.patch("/exibicao/:id", controller.patchFilme)
-// router.delete("/remover/:id", controller.deleteFilme)
+router.patch("/atualizar-projeto/:id", controller.updateProjectById)
+router.delete("/apagar-projeto/:id", controller.removeProjectById)
 
 module.exports = router

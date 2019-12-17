@@ -46,7 +46,7 @@ module.exports = {
     createNewUser
 }
 
-//json pro postman
+// json pro postman
 // "nome": "",
 // "cau_cre": "",
 // "responsavel_tecnico": "",

@@ -10,7 +10,7 @@ const clientsSchema = new Schema({
 
     nome: { type: String, required: true },
 
-    obra: { type: String, unique: true, required: true },
+    obra: { type: String, required: true },
 
     email: { type: String, required: true },
 
