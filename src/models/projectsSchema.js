@@ -8,16 +8,17 @@ const projectsSchema = new Schema({
         auto: true,
         required: true
     },
-    obra: String, // String is shorthand for {type: String}
-    //cliente: String, chamaria o cliente 
+
+    obra: String,
+    //cliente: id, chamaria o cliente 
     localizacao: String,
     descricao: String,
-    //observacoes: [{ body: String, date: Date }],
-    prazo: { type: Date, default: Date.now },
+    observacoes: [{ body: String, date: Date }],
+    prazo: Date,
     area_terreno: Number,
     area_construida: Number,
     //situacao: [{ em andamento, parado, concluido, interrompido }] //opcoes pra escolher
-    //responsavel_tecnico: chamaria o arquiteto/user
+    //responsavel_tecnico: id arquiteto/user
 
 });
 

@@ -20,7 +20,7 @@ const createNewProject = (req, res) => {
     const projectNotes = req.body.observacoes;
     const projectDeadline = req.body.prazo;
     const projectSiteArea = req.body.area_terreno;
-    const projectBuildingArea = req.body.area_construida;
+    const projectArea = req.body.area_construida;
     const project = new projectsCollection({ 
         
         obra: projectName,
@@ -28,9 +28,8 @@ const createNewProject = (req, res) => {
         descricao : projectDescription, 
         observacao : projectNotes,
         prazo : projectDeadline,
-        area_terreno : projectArea1,
-        const projectBuildingArea;
-    
+        area_terreno : projectSiteArea,
+        area_construida : projectArea          
     })
     project.save((error) => {
         if (error) {
@@ -48,3 +47,12 @@ module.exports = {
     getAllProjects,
     createNewProject
 }
+
+//json pro postman
+// "obra": "",
+// "localizacao": "",
+// "descricao": "",
+// "observacoes": "",
+// "prazo": "",
+// "area_terreno": "",
+// "area_construida": ""
