@@ -3,23 +3,23 @@ Gerenciamento de projetos arquitetônicos e de construção civil. Criação de 
 
 ![archiC-logo](/archic_images/archic-logo-150px.png)
 
-##REQUISITOS
+## REQUISITOS
 NodeJS 
 MongoDB 
 Utilize NPM para o download dos pacotes
 
-##PASSO A PASSO
+## PASSO A PASSO
 Clone o repositório em: link
 
-###No terminal linux :
+### No terminal linux :
   npm install 
   sudo service mongod start 
   nodemon server.js para startar o servidor
 
-###No terminal windows:
+### No terminal windows:
   startar o mongodb 
   npm install 
   nodemon server.js para startar o servidor
 
-###No Postman:
+### No Postman:
   "localhost:3000/"
