@@ -27,11 +27,3 @@ const usersSchema = new Schema({
 
 const usersCollection = mongoose.model('users', usersSchema)
 module.exports = { usersCollection, usersSchema };
-
-//json pro postman
-// "nome": "",
-// "cau_cre": "",
-// "responsavel_tecnico": "",
-// "projetos_ativos": "",
-// "email": "",
-// "telefone": ""

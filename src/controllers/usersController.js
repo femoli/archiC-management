@@ -14,6 +14,17 @@ const getAllUsers = (req, res) => {
     })
 };
 
+//const getProjectByID = (req, res) => {
+    
+//     projectsCollection.findById((error, projects) => {
+//         if (error) {
+//             return res.status(500).send(error)
+//         } else {
+//             return res.status(200).send(projects)
+//         }
+//     })
+// };
+
 //POST
 const createNewUser = (req, res) => {
     const userManagement = req.body.responsavel_tecnico;
@@ -29,6 +40,8 @@ const createNewUser = (req, res) => {
         telefone: userNumber
     })
 
+
+    
     user.save((error) => {
         if (error) {
             return res.status(400).send(error)
@@ -41,6 +54,7 @@ const createNewUser = (req, res) => {
 
 //CLIENTS ROUTES
 //GET
+
 const getAllClients = (req, res) => {
     clientsCollection.find((error, clients) => {
         if (error) {
@@ -52,28 +66,21 @@ const getAllClients = (req, res) => {
 };
 
 //POST
-const createNewClient = (req, res) => {
-    const clientName = req.body.nome;
-    const clientProject = req.body.obra;
-    const clientEmail = req.body.email;
-    const clientNumber = req.body.telefone;
-    const clientAddress = req.body.endereco;
-    const client = new clientsCollection({
-        nome: clientName,
-        obra: clientProject,
-        email: clientEmail,
-        telefone: clientNumber,
-        endereco: clientAddress
-    })
-    client.save((error) => {
-        if (error) {
-            return res.status(400).send(error)
-        } else {
-            return res.status(201).send(client)
-        }
+const createNewClient = async (req, res) => {
+    const userId = req.params.id;
+    const client = req.body;
 
-    })
-};
+    const newClient = new clientsCollection(client)
+    const user = await usersCollection.findById(userId)
+        user.projetos_ativos.push(newClient)
+        user.save((error) => {
+            if (error) {
+                return res.status(500).send(error)
+            }
+    
+            return res.status(201).send(user)
+        })
+    }
 
 //PROJECTS ROUTES
 //GET
@@ -98,6 +105,23 @@ const getProjectById = (req, res) => {
 };
 
 //POST
+
+// const createNewProject = async (req, res) => {
+//     const clientd = req.params.id;
+//     const client = req.body;
+
+//     const newClient = new clientsCollection(client)
+//     const user = await usersCollection.findById(userId)
+//         user.projetos_ativos.push(newClient)
+//         user.save((error) => {
+//             if (error) {
+//                 return res.status(500).send(error)
+//             }
+    
+//             return res.status(201).send(user)
+//         })
+//     }
+
 const createNewProject = (req, res) => {
 
     const projectName = req.body.obra;
@@ -190,7 +214,28 @@ module.exports = {
     removeProjectById
 }
 
-//PROJECT
+//JSON
+
+//newUser
+// {
+// "nome": "",
+// "cau_cre": "",
+// "responsavel_tecnico": "",
+// "projetos_ativos": "",
+// "email": "",
+// "telefone": ""
+// }
+
+//newClient
+// {
+// "nome" : "",
+// "obra": "",
+// "email": "",
+// "telefone": 
+// "endereco" : "",
+// }
+
+//newProject
 // {   
 //     "obra": "",
 //     "cliente":"",

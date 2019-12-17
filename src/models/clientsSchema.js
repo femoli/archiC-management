@@ -26,9 +26,3 @@ const clientsSchema = new Schema({
 
 const clientsCollection = mongoose.model('clients', clientsSchema)
 module.exports = {clientsCollection, clientsSchema};
-
-//"nome" : ""
-//"obra": ""
-//"email": ""
-//"telefone": 
-//"endereco" : ""

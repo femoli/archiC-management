@@ -1,17 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const controller = require("../controllers/usersController.js");
-
  
 //USER
 router.get("/usuarios", controller.getAllUsers);
 router.post("/novo-usuario", controller.createNewUser);
 
-
 //CLIENT
 router.get("/logado/clientes", controller.getAllClients);
-router.post("/logado/novo-cliente", controller.createNewClient);
-
+router.post("/logado/:id/novo-cliente", controller.createNewClient);
 
 //PROJECT
 router.get("/logado/projetos", controller.getAllProjects);

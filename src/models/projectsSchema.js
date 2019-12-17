@@ -9,7 +9,6 @@ const mongoose = require('mongoose');
 //     'Corporativo': 4
 // });
 
-//projectsSchema
 const Schema = mongoose.Schema;
 const projectsSchema = new Schema({
 
