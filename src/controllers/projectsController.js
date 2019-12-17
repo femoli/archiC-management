@@ -13,24 +13,33 @@ const getAllProjects = (req, res) => {
 };
 
 const createNewProject = (req, res) => {
+
     const projectName = req.body.obra;
-    //const projectClient = req.body.cliente;
+    const projectClient = req.body.cliente;
     const projectLocation = req.body.localizacao;
     const projectDescription = req.body.descricao;
-    const projectNotes = req.body.observacoes;
-    const projectDeadline = req.body.prazo;
+    const projectStart = req.body.data_inicio;
+    const projectDeadline = req.body.data_conclusao;
     const projectSiteArea = req.body.area_terreno;
     const projectArea = req.body.area_construida;
-    const project = new projectsCollection({ 
-        
+    const projectAuthor = req.body.responsavel_tecnico;
+    const projectStatus = req.body.situacao;
+    const projectNotes = req.body.observacoes;
+
+    const project = new projectsCollection({
         obra: projectName,
-        localizacao : projectLocation,
-        descricao : projectDescription, 
-        observacao : projectNotes,
-        prazo : projectDeadline,
-        area_terreno : projectSiteArea,
-        area_construida : projectArea          
+        cliente: projectClient,
+        localizacao: projectLocation,
+        descricao: projectDescription,
+        data_inicio: projectStart,
+        data_conclusao: projectDeadline,
+        area_terreno: projectSiteArea,
+        area_construida: projectArea,
+        responsavel_tecnico: projectAuthor,
+        situacao: projectStatus,
+        observacoes: projectNotes
     })
+
     project.save((error) => {
         if (error) {
             return res.status(400).send(error)
@@ -41,18 +50,24 @@ const createNewProject = (req, res) => {
     })
 }
 
-//criar um id especifico
-//chamar os clientes na rota do 
 module.exports = {
     getAllProjects,
     createNewProject
 }
 
-//json pro postman
-// "obra": "",
-// "localizacao": "",
-// "descricao": "",
-// "observacoes": "",
-// "prazo": "",
-// "area_terreno": "",
-// "area_construida": ""
+    // json pro postman
+    // "obra": "",
+    // "cliente":"",
+    // "localizacao": "",
+    // "descricao": "",
+    // "data_inicio": "",
+    // "data_conclusao": "",
+    // "area_terreno": "",
+    // "area_construida": "",
+    // "situacao": "",
+    // "responsavel_tecnico": "",
+    // "observacoes": ""
+
+//PRA-MAIS-TARDE:   
+//criar um id especifico pro projeto && 
+//chamar id clientes e usuarios no projectSchema
