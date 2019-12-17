@@ -7,8 +7,6 @@ database.connect()
 
 //const das rotas
 const index = require('./routes/index')
-const projects = require('./routes/projectsRouter')
-const clients = require('./routes/clientsRouter')
 const users = require('./routes/usersRouter')
 
 app.use(function (req, res, next) {
@@ -18,10 +16,10 @@ app.use(function (req, res, next) {
     'Origin, X-Requested-With, Content-Type, Accept'
   )
   next()
-})
+});
 
 app.use(bodyParser.json());
-app.use('/', index)
-app.use('/archic', projects, clients, users)
+app.use('/', index);
+app.use('/archic', users)
 
 module.exports = app

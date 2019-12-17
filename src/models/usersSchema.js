@@ -1,5 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+
+const { clientsSchema } = require ('./clientsSchema');
+
+//const 
+
 const usersSchema = new Schema({
 
     _id: {
@@ -8,22 +13,20 @@ const usersSchema = new Schema({
         required: true
     },
 
-    nome: { type: String, required: true },
+    responsavel_tecnico: { type: String, required: true },
 
     cau_cre: { type: String, required: true, unique: true },
 
-    responsavel_tecnico: { type: String, required: true },
-
-    projetos_ativos: { type: String, required: true },
+    projetos_ativos: [clientsSchema],
 
     email: { type: String, required: true },
 
     telefone: { type: Number, required: true }
 
-})
+});
 
 const usersCollection = mongoose.model('users', usersSchema)
-module.exports = usersCollection
+module.exports = { usersCollection, usersSchema };
 
 //json pro postman
 // "nome": "",

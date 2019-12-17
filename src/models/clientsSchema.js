@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
+const { projectsSchema } = require ('./projectsSchema');
+
 const clientsSchema = new Schema({
 
     _id: {
@@ -10,7 +13,7 @@ const clientsSchema = new Schema({
 
     nome: { type: String, required: true },
 
-    obra: { type: String, required: true },
+    obra: [projectsSchema],
 
     email: { type: String, required: true },
 
@@ -18,11 +21,11 @@ const clientsSchema = new Schema({
 
     endereco: { type: String, required: true }
 
-})
+});
 
 
 const clientsCollection = mongoose.model('clients', clientsSchema)
-module.exports = clientsCollection
+module.exports = {clientsCollection, clientsSchema};
 
 //"nome" : ""
 //"obra": ""

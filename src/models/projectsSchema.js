@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 //     'Corporativo': 4
 // });
 
-//ProjectsSchema
+//projectsSchema
 const Schema = mongoose.Schema;
 const projectsSchema = new Schema({
 
@@ -81,20 +81,4 @@ const projectsSchema = new Schema({
 });
 
 const projectsCollection = mongoose.model('project', projectsSchema)
-module.exports = projectsCollection
-
-// json pro postman
-// {   
-//     "obra": "",
-//     "cliente":"",
-//     "localizacao": "",
-//     "categoria": "",
-//     "descricao": "",
-//     "data_inicio": "",
-//     "data_conclusao": "",
-//     "area_terreno": "",
-//     "area_construida": "",
-//     "situacao": "",
-//     "responsavel_tecnico": "",
-//     "observacoes": ""
-// }
+module.exports = {projectsCollection, projectsSchema};
